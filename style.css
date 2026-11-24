@@ -5,7 +5,8 @@
    4. Home: hero and shift ticket
    5. Task cards, filters, task page
    6. Profile page
-   7. Responsive rules
+   7. Forms, answer box, small states
+   8. Responsive and print rules
 */
 /* VOICE: practical, encouraging, like a good first manager.
    IDEA: a shift timecard. Every task is a ticket you punch in on, every finished one is proof.
@@ -112,6 +113,28 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offse
 .feed{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
 .feed:last-child{border:0}
 footer{border-top:1px solid var(--line);margin-top:40px}
+.narrow{max-width:640px}
+.form{display:grid;gap:14px}
+.form h2,.form h3{margin:0}
+label{display:grid;gap:5px;font-weight:600;font-size:15px}
+label.inline{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-weight:500}
+label.btn{display:inline-flex}
+input:not([type=checkbox]),select,textarea{font:16px/1.5 Archivo,"Noto Sans Georgian",sans-serif;width:100%;min-height:44px;padding:9px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+label.inline select{width:auto}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--blue)}
+textarea{resize:vertical;margin-top:8px;display:block}
+label textarea{margin-top:0}
+.entry input{margin-top:10px}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--blue);outline-offset:1px}
+button.check{width:100%;background:none;border:0;border-bottom:1px solid var(--line);font:inherit;color:inherit;text-align:start;cursor:pointer}
+button.check:hover .box{border-color:var(--blue)}
+.link{background:none;border:0;padding:0;font:inherit;color:var(--blue);text-decoration:underline;cursor:pointer}
+.wait{color:var(--blue);font-weight:600;font-size:14px}
+.warn{color:light-dark(#b3261e,#ff8a80);font-weight:600;margin:0}.warn:empty{display:none}
+.pre{white-space:pre-wrap;overflow-wrap:anywhere}
+.clock.over{color:#b3261e}
+details textarea{font-size:13px}
 @media(max-width:960px){.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.cols,.two,.hero{grid-template-columns:minmax(0,1fr)}.side{position:static}}
-@media(max-width:600px){.steps{grid-template-columns:minmax(0,1fr)}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.ticket{padding-left:50px;transform:none}.ticket::before{left:16px}nav a{padding:10px 7px}.pro{grid-template-columns:minmax(0,1fr)}.me span{display:none}.chart span{display:none}}
+@media(max-width:600px){.steps{grid-template-columns:minmax(0,1fr)}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.ticket{padding-left:50px;transform:none}.ticket::before{left:16px}nav a{padding:10px 7px}.pro{grid-template-columns:minmax(0,1fr)}.me span:not(.av){display:none}.chart span{display:none}}
 @media(prefers-reduced-motion:no-preference){.ticket{transition:transform .3s}.ticket:hover{transform:rotate(0)}}
+@media print{header,footer,.noprint{display:none}.band{padding:0}.pro{background:none;color:#000;border:2px solid #000}.pro .chip{color:#000;border-color:#000}.entry,.cert,.stat{break-inside:avoid}}
