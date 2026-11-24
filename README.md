@@ -20,7 +20,18 @@ All students, companies, scores and certificates are sample data for the demo.
 
 ## Files
 
-Everything is in one file: `index.html` (HTML, CSS and JavaScript, no build step).
+No build step, no frameworks. Just four files:
+
+| File | What it holds |
+|------|---------------|
+| `index.html` | The page skeleton: header, main area, footer |
+| `style.css` | All styles, light and dark colours, mobile layout |
+| `data.js` | All content: fields, tasks, the demo student, candidates |
+| `app.js` | Logic: language and theme switch, page views, routing |
+
+### Editing content
+
+Every piece of text in `data.js` is written as `"English|Georgian"`. Change either half and both languages stay in sync. To add a task, copy one object in the `TASKS` list and edit it.
 
 ## Run it locally
 
@@ -28,4 +39,4 @@ Open `index.html` in a browser. That is it.
 
 ## Deploy
 
-The live site runs on Cloudflare Pages (Direct Upload). To update it, upload a zip of `index.html` to the `edutech` Pages project in the Cloudflare dashboard.
+The live site runs on Cloudflare Pages (Direct Upload). To update it, zip the four files and upload the zip as a new deployment of the `edutech` Pages project in the Cloudflare dashboard.
