@@ -38,7 +38,7 @@ Feedback:`}
 
 function review(){const p=pending(),g=graded().filter(s=>!s.bi).reverse();
 return `<section class="band"><div class="wrap"><h1>${L("Review desk","შეფასების მაგიდა")}</h1>
-<p class="lead muted">${L("Every submission is scored by a person, by hand. Read the work, the follow-up answer and the work trace, then give three scores and feedback.","ყველა ნამუშევარს ადამიანი აფასებს, ხელით. წაიკითხე ნამუშევარი, დამატებითი კითხვის პასუხი და მუშაობის კვალი, შემდეგ დაწერე სამი ქულა და უკუკავშირი.")}</p>
+<p class="lead muted">${L("Every submission is scored by a person, by hand. Read the work, the follow-up answer and the work trace, then give three scores and feedback.","ყველა ნამუშევარს ადამიანი აფასებს ხელით. წაიკითხე ნამუშევარი, დამატებითი კითხვის პასუხი და მუშაობის კვალი, შემდეგ დაწერე სამი ქულა და უკუკავშირი.")}</p>
 <div class="meta" style="margin-bottom:24px"><button class="btn ghost" type="button" data-act="export">${L("Download submissions","ნამუშევრების ჩამოტვირთვა")}</button>
 <label class="btn ghost">${L("Load graded file","შეფასებული ფაილის ატვირთვა")}<input type="file" id="gfile" accept=".json,application/json" hidden></label></div>
 <h2>${L("Waiting for review","ელოდება შეფასებას")} <span class="muted small">${p.length}</span></h2>
@@ -50,10 +50,10 @@ ${t.st.map((x,i)=>`<div class="check"><span class="box ${s.checks[i]?"y":""}">${
 <label>${L("Communication (0 to 20)","კომუნიკაცია (0-დან 20-მდე)")}<input name="m" type="number" min="0" max="20" required></label>
 <label>${L("Feedback to the student","უკუკავშირი მოსწავლეს")}<textarea name="fb" rows="3" required maxlength="300"></textarea></label>
 <label>${L("Reviewer","შემფასებელი")}<input name="by" required value="${esc(tr(t.who))}"></label>
-<label class="inline"><input type="checkbox" name="sup"> ${L("Done in class, supervised by a teacher","შესრულდა კლასში, მასწავლებლის მეთვალყურეობით")}</label>
+<label class="inline"><input type="checkbox" name="sup"> ${L("Done in class, supervised by a teacher","შესრულებულია კლასში, მასწავლებლის მეთვალყურეობით")}</label>
 <button class="btn hib">${L("Save score","ქულის შენახვა")}</button>
-<details><summary class="small">${L("Second opinion: text to paste into an AI helper","მეორე აზრი: ტექსტი AI დამხმარეში ჩასასმელად")}</summary><textarea rows="8" readonly>${esc(aiText(s,t))}</textarea></details></form></div>`}).join("")
-||`<p class="muted">${L("Nothing is waiting. Finish a shift as a student and it will show up here.","შესაფასებელი არაფერია. დაასრულე ცვლა როგორც მოსწავლემ და ის აქ გამოჩნდება.")}</p>`}
+<details><summary class="small">${L("Second opinion: text to paste into an AI helper","მეორე აზრი: ტექსტი AI ასისტენტში ჩასასმელად")}</summary><textarea rows="8" readonly>${esc(aiText(s,t))}</textarea></details></form></div>`}).join("")
+||`<p class="muted">${L("Nothing is waiting. Finish a shift as a student and it will show up here.","შესაფასებელი ნამუშევარი არ არის. დაასრულე ცვლა მოსწავლის როლში და ის აქ გამოჩნდება.")}</p>`}
 ${g.length?`<h2 style="margin-top:34px">${L("Scored","შეფასებული")} <span class="muted small">${g.length}</span></h2><div class="list">${g.map(s=>`<div class="entry"><div class="top"><div><b>${esc(tr(T(s.id).t))}</b><div class="small muted">${esc(s.g.by)} · „${esc(s.g.fb)}“</div></div>
 <div><b>${total(s.g)}/100</b> <button class="link small" type="button" data-act="regrade" data-id="${s.id}">${L("Score again","ხელახლა შეფასება")}</button></div></div></div>`).join("")}</div>`:""}
 </div></section>`}
